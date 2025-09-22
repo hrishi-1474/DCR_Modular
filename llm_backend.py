@@ -9,8 +9,7 @@ import tiktoken
 # --- Load API key from YAML ---
 try:
     with open("llm_keys.yaml", "r") as file:
-        llm_keys = yaml.safe_load(file)
-    os.environ["OPENAI_API_KEY"] = llm_keys["open_ai"]
+        os.environ["OPENAI_API_KEY"] = st.secrets["open_ai"]
 except Exception as e:
     st.error(f"Error loading API key: {e}")
     st.info("Please create a 'llm_keys.yaml' file with your OpenAI API key")
